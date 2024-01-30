@@ -1,7 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        
-        System.out.println("\n");
 
         ray testRay = new ray(
             new vec(0, 0, 2),
@@ -16,9 +14,9 @@ public class Main {
         //ray testRay = new ray(
         //    new vec(0, 0, 0),
         //    new vec(0, 0, 1));
-        //    
+
         //plane testPlane = new plane(
-        //    new vec(1, 1, 1),
+        //    new vec(0, 0, 1),
         //    new vec(1, 0, 0),
         //    new vec(0, 1, 0));
 

@@ -34,7 +34,7 @@ public class plane{
     public void initFromPoints(vec vec1, vec vec2, vec vec3){
         this.startPoint = vec1;
         this.dir1 = new vec(vec1.x-vec2.x, vec1.y-vec2.y, vec1.z-vec2.z);
-        this.dir2 = new vec(vec2.x-vec3.x, vec2.y-vec3.y, vec2.z-vec3.z);
+        this.dir2 = new vec(vec1.x-vec3.x, vec1.y-vec3.y, vec1.z-vec3.z);
     }
 
     public void setCoord(){
