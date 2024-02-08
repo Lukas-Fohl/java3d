@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -20,18 +23,35 @@ public class Main {
         //    new vec(1, 0, 0),
         //    new vec(0, 1, 0));
 
-        if(testPlane.hitByRay(testRay)){
-            vec temp = testPlane.getHitByRayFactor(testRay);
+        obj testObj = new obj();
+        testObj.readFromFile("");
+
+        List<Float> tempDistList = new ArrayList<Float>();
+
+        testObj.planeList.add(testPlane);
+
+        for(var planeIter:testObj.planeList){
+            if(planeIter.hitByRay(testRay)){
+                vec temp = testPlane.getHitByRayFactor(testRay);
+                vec hitPoint = testPlane.getPointFromFactor(temp.x, temp.y);
+                tempDistList.add(hitPoint.getDistanceToOtherPoint(testRay.startPoint));
+            }
+        }
+
+        //if(testPlane.hitByRay(testRay)){
+            //vec temp = testPlane.getHitByRayFactor(testRay);
 
             //testPlane.setCoord();
             //testPlane.normal.printvec();
             //System.out.println(testPlane.solution);
 
-            vec hitPoint = testPlane.getPointFromFactor(temp.x, temp.y);
-            float distance = hitPoint.getDistanceToOtherPoint(testRay.startPoint);
-            hitPoint.printvec();
-            System.out.println(distance);
-        }
+            //vec hitPoint = testPlane.getPointFromFactor(temp.x, temp.y);
+            //float distance = hitPoint.getDistanceToOtherPoint(testRay.startPoint);
+            //hitPoint.printvec();
+            //System.out.println(distance);
+        //}
+
+
         /*Ablauf:
         * create coord form of plane
         * get hit fct of plane and ray
@@ -41,5 +61,8 @@ public class Main {
         * find distance of ray.start and hit
         */
 
+    }
+    private class DisPlane{
+    
     }
 }

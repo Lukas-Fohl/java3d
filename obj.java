@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class obj{
-    plane[] planeList;
-    public plane[] readFromFile(String objPath){
+    List<plane> planeList = new ArrayList<plane>();
+    public void readFromFile(String objPath){
         //open path --> convet to plane by point
-        return planeList;
+        return;
     }
 }
