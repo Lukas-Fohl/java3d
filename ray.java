@@ -25,6 +25,12 @@ public class ray {
         this.dir.z = vec1.z - vec2.z;
     }
 
+    public ray getInitFromPoints(vec vec1, vec vec2){
+        ray tempRay = new ray(new vec(0, 0, 0), new vec(0, 0, 0));
+        tempRay.initFromPoints(vec1, vec2);
+        return tempRay;
+    }
+
     public vec getPointFromFactor(float factorIn){
         return new vec(
             factorIn * dir.x + startPoint.x,

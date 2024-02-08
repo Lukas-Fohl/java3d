@@ -13,30 +13,38 @@ public class Main {
             new vec(1, 3, 5),
             new vec(2, 4, 8));
 
-
-        //ray testRay = new ray(
-        //    new vec(0, 0, 0),
-        //    new vec(0, 0, 1));
-
-        //plane testPlane = new plane(
-        //    new vec(0, 0, 1),
-        //    new vec(1, 0, 0),
-        //    new vec(0, 1, 0));
-
         obj testObj = new obj();
         testObj.readFromFile("");
 
-        List<Float> tempDistList = new ArrayList<Float>();
+        testObj.planeList.add(testPlane); //just for now --> else is empty
 
-        testObj.planeList.add(testPlane);
+        int XCamSize = 20;
+        int YCamSize = 20;
 
-        for(var planeIter:testObj.planeList){
-            if(planeIter.hitByRay(testRay)){
-                vec temp = testPlane.getHitByRayFactor(testRay);
-                vec hitPoint = testPlane.getPointFromFactor(temp.x, temp.y);
-                tempDistList.add(hitPoint.getDistanceToOtherPoint(testRay.startPoint));
+        cam mainCam = new cam(0,
+            new vec(0, 0, 0),
+            new vec(0, 0, 0),
+            XCamSize,
+            YCamSize);
+
+        mainCam.initRays();
+
+        Boolean[][] result = new Boolean[XCamSize][YCamSize];
+
+        for(int x = 0; x < XCamSize; x++){
+            for(int y = 0; y < YCamSize; y++){
+                result[x][y] = false;
+                for(var planeIter:testObj.planeList){
+                    if(planeIter.hitByRay(mainCam.rays[x][y])){
+                        //vec temp = testPlane.getHitByRayFactor(testRay);
+                        //vec hitPoint = testPlane.getPointFromFactor(temp.x, temp.y);
+                        result[x][y] = true;
+                        break; //-->hit
+                    }
+                }
             }
         }
+
 
         //if(testPlane.hitByRay(testRay)){
             //vec temp = testPlane.getHitByRayFactor(testRay);
@@ -61,8 +69,5 @@ public class Main {
         * find distance of ray.start and hit
         */
 
-    }
-    private class DisPlane{
-    
     }
 }
