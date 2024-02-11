@@ -45,6 +45,7 @@ public class Main {
             }
         }
 
+        mainCam.display(result);
 
         //if(testPlane.hitByRay(testRay)){
             //vec temp = testPlane.getHitByRayFactor(testRay);

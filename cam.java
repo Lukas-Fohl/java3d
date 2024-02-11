@@ -25,4 +25,14 @@ public class cam{
         }
         return;
     }
+
+    public void display(Boolean[][] displayIn){
+        for(int yIter = 0; yIter < sizeY; yIter++){
+            for(int xIter = 0; xIter < sizeX; xIter++){
+                System.out.print(((displayIn[xIter][yIter]==true)?"#":" "));
+            }
+            System.out.print("\n");
+        }
+        return;
+    }
 }
